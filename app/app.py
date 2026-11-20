@@ -1,5 +1,7 @@
 """HTTP-приложение для проверки CI-конвейера."""
+
 from flask import Flask, jsonify
+
 
 def create_app():
     """Создаёт и настраивает экземпляр приложения."""
@@ -11,7 +13,7 @@ def create_app():
         return jsonify(status="ok")
 
     @application.get("/")
-        def index():
+    def index():
         """Возвращает сведения о службе."""
         return jsonify(
             service="devops-ci-app",
@@ -20,5 +22,6 @@ def create_app():
         )
 
     return application
+
 
 app = create_app()
